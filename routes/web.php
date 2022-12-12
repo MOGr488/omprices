@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', [ProductsController::class, 'index']);
+Route::get('/search', [ProductsController::class, 'search']);
 
 
 Route::get('/dashboard', function () {
