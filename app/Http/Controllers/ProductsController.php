@@ -99,7 +99,7 @@ class ProductsController extends Controller
     {
         // $products = Product::where('productName', 'like', '%'. request('search'). '%')->get();
         $products = Product::with('prices', 'prices.store')->filter(request(['category', 'region', 'search']))->get();
-   
+        
         return view('search', compact('products'));
     }
 

@@ -8,19 +8,21 @@
 </head>
 <body>
     <h1>Search Result</h1>
+    {{ dump($products) }}
+
     @unless (count($products) == 0)
     <ol>
         @foreach ($products as $product)
         
            <li><h3>{{ $product->productName }}</h3></li>
                 <ul>
-                    @foreach($product->prices as $price)
+                    {{-- @foreach($product->prices as $price)
                             <li>
-                                <strong>Store: </strong> {{ $price->store->storeName }} /
-                                <strong>Price: </strong> {{ $price->productPrice }}
-                                / <strong>wilayah: </strong> {{ $price->store->wilayah->wilayah }} -> <strong>Region: </strong> {{ $price->store->wilayah->region->regionName }}
-                            </li>
-                            @endforeach
+                                <strong>Store: </strong> {{ $price->store->storeName }} / --}}
+                                {{-- <strong>Price: </strong> {{ $price->productPrice }} --}}
+                                {{-- / <strong>wilayah: </strong> {{ $price->store->wilayah->wilayah }} -> <strong>Region: </strong> {{ $price->store->wilayah->region->regionName }} --}}
+                            {{-- </li>
+                            @endforeach --}}
                 </ul>  
         @endforeach
     </ol> 
