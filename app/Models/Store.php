@@ -16,5 +16,9 @@ class Store extends Model
     public function products(){
         return $this->belongsToMany(Product::class);
     }
+
+    public function wilayah(){
+        return $this->belongsTo(Wilayat::class);
+    }
     
 }

@@ -19,11 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/test', [ProductsController::class, 'index']);
+Route::get('/', [ProductsController::class, 'index']);
 Route::get('/search', [ProductsController::class, 'search']);
 
 

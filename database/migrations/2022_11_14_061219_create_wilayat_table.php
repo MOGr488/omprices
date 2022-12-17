@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wilayat', function (Blueprint $table) {
-            $table->id('wilayah_id');
+            $table->id();
             $table->string('wilayah');
             $table->foreignId('region_id');
             $table->timestamps();

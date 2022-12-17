@@ -18,6 +18,7 @@
                             <li>
                                 <strong>Store: </strong> {{ $price->store->storeName }} /
                                 <strong>Price: </strong> {{ $price->productPrice }}
+                                / <strong>wilayah: </strong> {{ $price->store->wilayah->wilayah }} -> <strong>Region: </strong> {{ $price->store->wilayah->region->regionName }}
                             </li>
                             @endforeach
                 </ul>  

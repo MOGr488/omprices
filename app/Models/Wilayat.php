@@ -14,5 +14,9 @@ class Wilayat extends Model
     public function region(){
         return $this->belongsTo(Region::class);        
     }
+
+    public function stores(){
+        return $this->hasMany(Stores::class);
+    }
     
 }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Store;
+use App\Models\Region;
 use App\Models\Product;
 use App\Models\ProductPrice;
-use App\Models\Store;
+use App\Models\Wilayat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,10 +20,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::with('prices', 'prices.store')->get();
-        $stores = Store::with('prices', 'prices.product')->get();
+        // $products = Product::with('prices', 'prices.store')->get();
+        // $stores = Store::with('prices', 'prices.product')->get();
 
-        return view('test', compact('products', 'stores'));
+        $regions = Region::with('wilayat')->get();
+        $categories = Category::all();
+
+        return view('trail', compact('regions','categories'));
     }
 
     /**
@@ -91,8 +97,11 @@ class ProductsController extends Controller
 
     public function search(Request $request)
     {
-        $products = Product::where('productName', 'like', '%'. request('query'). '%')->get();
-
+        // $products = Product::where('productName', 'like', '%'. request('search'). '%')->get();
+        $products = Product::with('prices', 'prices.store')->filter(request(['category', 'region', 'search']))->get();
+   
         return view('search', compact('products'));
     }
+
+
 }
