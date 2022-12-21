@@ -20,10 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [ProductsController::class, 'index']);
-Route::get('/search', [ProductsController::class, 'search']);
+Route::get('/', [ProductsController::class, 'index'])->name('home');;
+Route::get('/searchResult', [ProductsController::class, 'search']);
 
-
+Route::get('/login', function(){
+    return view('login');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -26,7 +26,7 @@ class ProductsController extends Controller
         $regions = Region::with('wilayat')->get();
         $categories = Category::all();
 
-        return view('trail', compact('regions','categories'));
+        return view('search', compact('regions','categories'));
     }
 
     /**
@@ -100,7 +100,7 @@ class ProductsController extends Controller
         // $products = Product::where('productName', 'like', '%'. request('search'). '%')->get();
         $products = Product::with('prices', 'prices.store')->filter(request(['category', 'region', 'search']))->get();
         
-        return view('search', compact('products'));
+        return view('searchResult', compact('products'));
     }
 
 

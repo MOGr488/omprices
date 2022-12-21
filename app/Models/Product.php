@@ -43,17 +43,17 @@ class Product extends Model
             return $query;
         }
 
-        // // Filter Category
-        // if (isset($filters['category'])) {
-        //     $query->join('categories', 'categories.id', '=', 'products.category_id')
-        //         ->where('catName', $filters['category']);
-        // }
+        // Filter Category
+        if (isset($filters['category'])) {
+            $query->join('categories', 'categories.id', '=', 'products.category_id')
+                ->where('catName', $filters['category']);
+        }
 
 
-        // // Filter for search 
-        // if (isset($filters['search'])) {
-        //     $query->where('productName', 'like', '%' . $filters['search'] . '%');
-        // }
+        // Filter for search 
+        if (isset($filters['search'])) {
+            $query->where('productName', 'like', '%' . $filters['search'] . '%');
+        }
 
         return $query;
     }
