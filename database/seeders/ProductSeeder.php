@@ -18,18 +18,18 @@ class ProductSeeder extends Seeder
         $product = [
             [
                 'id' => 1,
-                'productName' => 'Potato',
+                'productName' => 'T-Shirt',
                 'cat_id' => 1
             ],
             [
                 'id' => 2,
                 'productName' => 'Banana',
-                'cat_id' => 1
+                'cat_id' => 2
             ],
             [
                 'id' => 3,
-                'productName' => 'Carrot',
-                'cat_id' => 1
+                'productName' => 'Toy car',
+                'cat_id' => 3
             ],
         ];
 

@@ -29,6 +29,7 @@ class StoreSeeder extends Seeder
                 'storeLocation'=>'',
                 'region_id'=>1,
                 'wilayah_id'=>1,
+                'user_id' =>2,
                 'contactNumber'=>'001'
             ],
             [
@@ -37,6 +38,7 @@ class StoreSeeder extends Seeder
                 'storeLocation'=>'',
                 'region_id'=>1,
                 'wilayah_id'=>1,
+                'user_id' =>3,
                 'contactNumber'=>'002'
             ],
             [
@@ -45,6 +47,7 @@ class StoreSeeder extends Seeder
                 'storeLocation'=>'',
                 'region_id'=>1,
                 'wilayah_id'=>1,
+                'user_id' =>4,
                 'contactNumber'=>'003'
             ],
 

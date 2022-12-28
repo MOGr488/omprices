@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Store extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'storeName', 'storeLocation', 'website', 'region_id', 'wilayah_id', 'user_id', 'contactNumber'
+    ];
+
+
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
     public function prices(){
         return $this->hasMany(ProductPrice::class);
@@ -20,5 +29,7 @@ class Store extends Model
     public function wilayah(){
         return $this->belongsTo(Wilayat::class);
     }
+
+
     
 }

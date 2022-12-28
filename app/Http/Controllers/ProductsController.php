@@ -20,9 +20,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        // $products = Product::with('prices', 'prices.store')->get();
-        // $stores = Store::with('prices', 'prices.product')->get();
-
+       
         $regions = Region::with('wilayat')->get();
         $categories = Category::all();
 
@@ -99,6 +97,7 @@ class ProductsController extends Controller
     {
         // $products = Product::where('productName', 'like', '%'. request('search'). '%')->get();
         $products = Product::with('prices', 'prices.store')->filter(request(['category', 'region', 'search']))->get();
+        
         
         return view('searchResult', compact('products'));
     }

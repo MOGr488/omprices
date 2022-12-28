@@ -20,6 +20,10 @@ class WilayatSeeder extends Seeder
                 'wilayah' => 'Manah',
                 'region_id' => '1'
             ],
+            [
+                'wilayah' => 'Nizwa',
+                'region_id' => '1'
+            ],
         ];
 
 

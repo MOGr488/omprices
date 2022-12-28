@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('storeName');
             $table->string('storeLocation');
+            $table->string('website')->nullable();
             $table->foreignId('region_id');
             $table->foreignId('wilayah_id');
+            $table->foreignId('user_id');
             $table->string('contactNumber');
 
             $table->timestamps();

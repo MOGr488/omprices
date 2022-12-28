@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('wilayah');
             $table->foreignId('region_id');
-            $table->timestamps();
+            
         });
     }
 
