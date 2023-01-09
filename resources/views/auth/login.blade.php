@@ -48,6 +48,10 @@
                     </a>
                 @endif --}}
 
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/register">
+                    {{ __('I don\'t have an account') }}
+                </a>
+
                 <x-primary-button class="ml-3">
                     {{ __('Log in') }}
                 </x-primary-button>

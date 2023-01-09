@@ -11,12 +11,12 @@ class Storescontroller extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'storeName' => 'required',
-            'contactNumber' => 'required|numeric',
+            'storeName' => 'required|string|max:255',
+            'contactNumber' => 'required|string|regex:/^[97][0-9]{7}$/',
             'Region' => 'required|exists:regions,id',
             'Wilayah' => 'required|exists:wilayat,id',
-            'location' => 'required',
-            'website' => 'nullable|url'
+            'location' => 'required|string|max:255',
+            'website' => 'nullable|url|string|max:255'
         ]);
 
    
