@@ -24,13 +24,13 @@
     <div class="container position-absolute top-50 start-50 translate-middle"
         style="padding: 20px; background-color:rgb(112, 187, 209);">
         <input class="form-control form-control-lg" type="text" placeholder="Enter Keywords"
-            aria-label=".form-control-lg example">
+            aria-label=".form-control-lg example" name="search">
         <hr style="color:black">
         <h5 style="text-align: center;">ADVANCED SEARCH</h5>
         <div class="row">
             <div class="col-md-6" style="padding: 10px;">
                 <select class="form-select" aria-label="Default select example" name="region">
-                    <option selected>Select a region</option>
+                    {{-- <option value="1" selected>Select a region</option> --}}
                     @foreach ($regions as $region)
                     <option value="{{$region->id}}">{{$region->regionName}}</option>
                         
@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-6" style="padding: 10px;">
                 <select class="form-select" aria-label="Default select example" name="category">
-                    <option selected>Select a category</option>
+                    
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->CatName }}</option>
                    @endforeach

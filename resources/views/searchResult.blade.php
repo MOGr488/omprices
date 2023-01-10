@@ -18,23 +18,26 @@
     <ol>
         @foreach ($products as $product)
         
-           <li><h3>{{ $product->productName }}</h3></li>
+           <li><h3>{{ $product['productName'] }}</h3></li>
                 <ul>
-                     @foreach($product->prices as $price) 
-                    <li>
+                     @foreach($product->prices as $price)
+                      
+                    {{-- <li>
                                 <strong>Store: </strong> {{ $price->store->storeName }} / 
                                  <strong>Price: </strong> {{ $price->productPrice }} 
                                  / <strong>wilayah: </strong> {{ $price->store->wilayah->wilayah }} -> <strong>Region: </strong> {{ $price->store->wilayah->region->regionName }} 
-                             </li>
+                             </li> --}}
                             @endforeach 
                 </ul>  
         @endforeach
+
+        
     </ol> 
         @else
         <h2>No Products Found</h2>
     @endunless
 
-    <section class="py-5 text-center container">
+    {{-- <section class="py-5 text-center container">
        
     
       <div class="album py-5 bg-light">
@@ -70,7 +73,7 @@
           </div>
         </div>
       </div>
-    
+     --}}
 
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

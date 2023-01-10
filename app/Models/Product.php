@@ -23,32 +23,30 @@ class Product extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        // // Join the store table
-        // $query->join('stores', 'stores.id', '=', 'products.store_id');
 
-
-
-        //Filter Region 
-        if (isset($filters['region'])) {
-            $query->whereHas('prices.store.wilayah.region', function ($query) use ($filters) {
-                $query->where('id', $filters['region']);
+        $query->join('product_prices', 'product_prices.product_id', '=', 'products.id')
+            ->join('stores', 'stores.id', '=', 'product_prices.store_id')
+            ->join('wilayat', 'wilayat.id', '=', 'stores.wilayah_id')
+            ->join('regions', 'regions.id', '=', 'wilayat.region_id')
+            ->join('categories', 'categories.id', '=', 'products.cat_id');
+        // Filter by keyword
+        if (!empty($filters['search'])) {
+            $query->where(function ($q) use ($filters) {
+                $q->where('productName', 'like', '%' . $filters['search'] . '%')
+                    ->orWhere('storeName', 'like', '%' . $filters['search'] . '%');
             });
-            
-
-            return $query;
         }
 
-        // Filter Category
+        // Filter by region
+        if (isset($filters['region'])) {
+            $query->where('regions.id', $filters['region']);
+        }
+
+        // Filter by category
         if (isset($filters['category'])) {
-            $query->join('categories', 'categories.id', '=', 'products.category_id')
-                ->where('catName', $filters['category']);
+            $query->where('categories.id', $filters['category']);
         }
 
-
-        // Filter for search 
-        if (isset($filters['search'])) {
-            $query->where('productName', 'like', '%' . $filters['search'] . '%');
-        }
 
         return $query;
     }

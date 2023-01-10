@@ -96,8 +96,9 @@ class ProductsController extends Controller
     public function search(Request $request)
     {
         // $products = Product::where('productName', 'like', '%'. request('search'). '%')->get();
-        $products = Product::with('prices', 'prices.store')->filter(request(['category', 'region', 'search']))->get();
-        
+        // $products = Product::with('prices', 'prices.store')->filter(request(['category', 'region', 'search']))->get();
+        $products = Product::filter($request->only(['search', 'region', 'category']))->get();
+
         
         return view('searchResult', compact('products'));
     }
