@@ -13,10 +13,13 @@
             border-radius: 20px;
         }
     </style>
+
+
 </head>
 
 <body>
-    
+    <x-nav-bar-guest />
+   
     <form action="/searchResult" method="GET">
     <div class="container position-absolute top-50 start-50 translate-middle"
         style="padding: 20px; background-color:rgb(112, 187, 209);">
