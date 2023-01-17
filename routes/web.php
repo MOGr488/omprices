@@ -34,6 +34,8 @@ Route::post('/store', [Storescontroller::class, 'store']);
 Route::get('/cities', [DashboardController::class, 'City']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::delete('/stores/{store}', [StoresController::class, 'destroy'])->name('stores.destroy');
+
 
 require __DIR__.'/auth.php';
 

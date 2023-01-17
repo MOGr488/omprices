@@ -41,4 +41,19 @@ class Storescontroller extends Controller
         return redirect()->route('dashboard');
     }
 
+
+    public function destroy($id)
+{
+    $store = Store::findOrFail($id);
+    if($store->user_id != auth()->user()->id){
+        // the user is not authorized to perform this action
+        return redirect()->back()->with('error', 'You are not authorized to perform this action');
+    }
+    $store->delete();
+    session()->flash('success', 'Store deleted successfully');
+    return redirect()->route('dashboard');
+    // ->with('success', 'Store deleted successfully');
+}
+
+
 }

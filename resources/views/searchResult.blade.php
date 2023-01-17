@@ -12,7 +12,7 @@
 <body>
     <main>
     <h1>Search Result</h1>
-    {{ dump($products) }}
+    {{-- {{ dump($products) }} --}}
 
     <section class="py-5 text-center container">
        

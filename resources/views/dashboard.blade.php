@@ -8,6 +8,17 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                @if (session()->has('success'))
+                <div class="bg-green-200 text-green-800 p-4 rounded-md">
+                    {{ session()->get('success') }}
+                </div>
+              @endif
+
+              @if (session()->has('error'))
+              <div class="bg-red-200 text-red-800 p-4 rounded-md">
+                  {{ session()->get('error') }}
+              </div>
+            @endif
                 <div class="p-6 bg-white border-b border-gray-200">
                     @if($userHasStore)                
                     <p>{{ $store->contactNumber }}</p><br>

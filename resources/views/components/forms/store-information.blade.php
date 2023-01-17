@@ -16,4 +16,11 @@
     </span>
     Google Map</a><br>
 
+    
 
+<form method="POST" action="{{ route('stores.destroy', $store->store->id) }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white my-3 py-2 px-4 rounded-full">Delete Store</button>
+    </form>
+    
